@@ -64,18 +64,6 @@
       color: #fff;
     }
 
-    .profile-container {
-      display: flex;
-      align-items: center;
-    }
-
-    #profile-pic {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      margin-right: 10px;
-    }
-
     .parallax {
       position: relative;
       display: flex;
@@ -95,6 +83,18 @@
       transition: opacity 0.5s ease;
     }
 
+    .parallax img#plant {
+      transform: translateY(-90px);
+    }
+
+    #text {
+      position: absolute;
+      font-size: 8em;
+      color: #fff;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+      transition: opacity 0.5s ease;
+    }
+
     .sec {
       background: #003329;
       padding: 90px 60px;
@@ -104,6 +104,7 @@
       grid-template-columns: repeat(3, 1fr);
       align-items: center;
       justify-content: center;
+
     }
 
     .header2 {
@@ -156,9 +157,18 @@
       color: inherit;
     }
 
+    .clickable-div h1 {
+      text-decoration: none;
+    }
+
+    #profile-pic {
+      transition: transform 0.2s;
+    }
+
     #profile-pic:hover {
       transform: scale(1.1);
     }
+
 
     @media (max-width: 768px) {
       .logo {
@@ -177,8 +187,14 @@
       .sec h2 {
         font-size: 2em;
       }
+
+      #text {
+        font-size: 2.5em;
+        text-align: center;
+      }
     }
   </style>
+
 </head>
 
 <body>
@@ -188,10 +204,7 @@
       <a href="#home">Home</a>
       <a href="#">About</a>
       <a href="#">Contact</a>
-      <div class="profile-container">
-        <img id="profile-pic" style="display: none;" />
-        <a id="google-login-btn" href="google_email_login.html">Login</a>
-      </div>
+      <a id="google-login-btn" href="google_email_login.html">Login</a>
     </nav>
   </header>
 
@@ -209,25 +222,30 @@
 
   <h2 class="header2">Our Websites</h2>
   <section class="sec">
+
     <div class="tiltcard" data-tilt data-tilt-glare>
       <a href="https://zenbot.netlify.app/" class="clickable-div">
         <img src="zenbot.jpg"><br>
         <h1>Zenbot</h1>
       </a>
     </div>
+
     <div class="tiltcard" data-tilt data-tilt-glare>
       <a href="https://zengine.netlify.app/" class="clickable-div">
         <img src="search.jpg" class="search"><br>
         <h1>Zengine</h1>
       </a>
     </div>
+
     <div class="tiltcard" data-tilt data-tilt-glare>
       <a href="https://harshith7.netlify.app/" class="clickable-div">
         <img src="myself_transparent.png" class="search"><br>
         <h1>My Portfolio</h1>
       </a>
     </div>
+
   </section>
+
 </body>
 
 </html>
