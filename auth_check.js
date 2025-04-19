@@ -16,7 +16,16 @@ const auth = getAuth(app);
 onAuthStateChanged(auth, (user) => {
   const nav = document.querySelector('.navigation');
   const existingProfile = document.getElementById('profile-pic');
+  
+  // Remove the existing profile if any
   if (existingProfile) existingProfile.remove();
+
+  // Hide login buttons if user is logged in
+  document.querySelectorAll('.navigation a').forEach(link => {
+    if (link.textContent.toLowerCase().includes('login')) {
+      link.style.display = 'none';
+    }
+  });
 
   if (user) {
     // Create profile image
@@ -37,18 +46,10 @@ onAuthStateChanged(auth, (user) => {
     signOutBtn.style.marginLeft = "10px";
     signOutBtn.onclick = async () => {
       await signOut(auth);
-      location.reload();
+      location.reload();  // Refresh to show updated UI
     };
 
     nav.appendChild(img);
     nav.appendChild(signOutBtn);
-
-    // Hide login buttons
-    document.querySelectorAll('.navigation a').forEach(link => {
-      if (link.textContent.toLowerCase().includes('login')) {
-        link.style.display = 'none';
-      }
-    });
-
   }
 });
